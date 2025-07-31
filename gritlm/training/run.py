@@ -119,7 +119,7 @@ def main():
         tokenizer.pad_token = tokenizer.bos_token
         logger.info('Set pad token to bos token: %s', tokenizer.pad_token)   
 
-    data_files = [os.path.join(data_args.train_data, x) for x in os.listdir(data_args.train_data)] if \
+    data_files = [os.path.join(data_args.train_data, x) for x in os.listdir(data_args.train_data) if x.endswith('.jsonl')] if \
         os.path.isdir(data_args.train_data) else [data_args.train_data]
     train_ds, ds_embedding_lens = [], []
     
